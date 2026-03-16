@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyXiao · Merch</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 完整样式，与首页保持一致 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* 导航栏 */
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1); padding: 16px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); background: rgba(255,255,255,0.95); }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+    .logo-img { height: 40px; width: auto; }
+    .logo-highlight { color: #e53e3e; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2.5rem; font-weight: 500; }
+    .nav-links a { transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: #e53e3e; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 5px 12px; border-radius: 30px; }
+    .lang-btn { background: none; border: none; font-size: 1rem; font-weight: 600; color: #9ca3af; cursor: pointer; padding: 4px 8px; border-radius: 20px; text-decoration: none; }
+    .lang-btn.active { color: #e53e3e; background: white; box-shadow: 0 2px 8px rgba(229,62,62,0.1); }
+    .lang-divider { color: #d1d5db; }
+
+    /* 页头 */
+    .page-header { padding: 60px 0 30px; text-align: center; background: #f9fafb; }
+    .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .title-highlight { color: #e53e3e; position: relative; display: inline-block; }
+    .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.2rem; }
+
+    /* 周边产品网格 */
+    .merch-list { padding: 80px 0; background: white; }
+    .merch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 2rem; }
+    .merch-card { background: #fef2f2; border-radius: 28px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; border: 1px solid #fee2e2; display: block; color: inherit; }
+    .merch-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -10px rgba(229,62,62,0.2); border-color: #e53e3e; }
+    .merch-icon { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; background: white; box-shadow: 0 10px 20px -5px rgba(229,62,62,0.2); }
+    .merch-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .merch-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; color: #111827; }
+    .merch-price { font-size: 1.2rem; font-weight: 700; color: #e53e3e; margin-bottom: 0.8rem; }
+    .merch-desc { color: #4b5563; font-size: 0.95rem; line-height: 1.6; }
+
+    /* 页脚 */
+    .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
+    .footer-credit { font-size: 0.9rem; color: #9ca3af; letter-spacing: 1px; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) { .merch-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .merch-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .merch-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">✦ LuckyXiao</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="zodiacs.html">Zodiacs</a>
+          <a href="merch.html">Merch</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <a href="zh/merch.html" class="lang-btn">中</a>
+          <span class="lang-divider">|</span>
+          <a href="merch.html" class="lang-btn active">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Official<span class="title-highlight">Merch</span></h1>
+        <p class="section-sub">Bring the Zodiac personality home · Official Merchandise</p>
+      </div>
+    </section>
+
+    <section class="merch-list">
+      <div class="container">
+        <div class="merch-grid">
+          <!-- 生肖盲盒 -->
+          <a href="merch-detail.html?id=blindbox" class="merch-card">
+            <div class="merch-icon">
+              <img src="images/merch/merch-blindbox.jpg" alt="Zodiac Blind Box" 
+                   onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-gift\' style=\'font-size:3rem; color:#e53e3e; line-height:100px;\'></i>';">
+            </div>
+            <h3>Zodiac Blind Box</h3>
+            <div class="merch-price">$9</div>
+            <p class="merch-desc">Randomly draw your guardian zodiac, includes hidden editions</p>
+          </a>
+
+          <!-- 生肖T恤 -->
+          <a href="merch-detail.html?id=tshirt" class="merch-card">
+            <div class="merch-icon">
+              <img src="images/merch/merch-tshirt.jpg" alt="Zodiac T-shirt" 
+                   onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-shirt\' style=\'font-size:3rem; color:#e53e3e; line-height:100px;\'></i>';">
+            </div>
+            <h3>Zodiac T-shirt</h3>
+            <div class="merch-price">$19</div>
+            <p class="merch-desc">Cotton, 12 zodiac personality prints</p>
+          </a>
+
+          <!-- 公仔玩偶 -->
+          <a href="merch-detail.html?id=plush" class="merch-card">
+            <div class="merch-icon">
+              <img src="images/merch/merch-plush.jpg" alt="Plush Doll" 
+                   onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-cube\' style=\'font-size:3rem; color:#e53e3e; line-height:100px;\'></i>';">
+            </div>
+            <h3>Plush Doll</h3>
+            <div class="merch-price">$24</div>
+            <p class="merch-desc">25cm soft doll, 12 styles available</p>
+          </a>
+
+          <!-- 帆布袋 -->
+          <a href="merch-detail.html?id=bag" class="merch-card">
+            <div class="merch-icon">
+              <img src="images/merch/merch-bag.jpg" alt="Canvas Bag" 
+                   onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-bag-shopping\' style=\'font-size:3rem; color:#e53e3e; line-height:100px;\'></i>';">
+            </div>
+            <h3>Canvas Bag</h3>
+            <div class="merch-price">$12</div>
+            <p class="merch-desc">Eco-friendly canvas, zodiac illustration pattern</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 LuckyXiao · Original IP. All rights reserved.</p>
+      <p class="footer-credit">"BORN TO BE DIFFERENT" — Rediscover the world and future</p>
+    </div>
+  </footer>
+</body>
+</html>

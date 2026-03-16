@@ -1,0 +1,773 @@
+/* 全局重置与变量 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 导航栏 */
+.navbar {
+  background: #ffffff;
+  box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-mark {
+  color: #e53e3e;
+  margin-right: 2px;
+}
+
+.logo-highlight {
+  color: #e53e3e;
+  font-weight: 800;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  transition: all 0.2s;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e53e3e;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #e53e3e;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* 语言切换器（使用 <a> 标签） */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  padding: 5px 12px;
+  border-radius: 30px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.lang-btn.active {
+  color: #e53e3e;
+  background: white;
+  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.1);
+}
+
+.lang-divider {
+  color: #d1d5db;
+  font-weight: 300;
+}
+
+/* 移动端导航 */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-right {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+}
+
+/* 通用标题 */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.title-highlight {
+  color: #e53e3e;
+  position: relative;
+  display: inline-block;
+}
+
+.title-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(229, 62, 62, 0.2);
+  z-index: -1;
+}
+
+.section-sub {
+  text-align: center;
+  color: #6b7280;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.2rem;
+}
+
+/* 按钮 */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  background: #e53e3e;
+  color: white;
+  box-shadow: 0 8px 16px -6px rgba(229, 62, 62, 0.4);
+}
+
+.btn-primary:hover {
+  background: #c53030;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -8px rgba(229, 62, 62, 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #e53e3e;
+  border: 2px solid #e53e3e;
+  margin-left: 16px;
+}
+
+.btn-outline:hover {
+  background: #e53e3e;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn i {
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.btn:hover i {
+  transform: translateX(4px);
+}
+
+/* 英雄区 */
+.hero {
+  padding: 60px 0 80px;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #e53e3e, #b91c1c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  display: block;
+}
+
+.hero-cn {
+  font-size: 4rem;
+  color: #111827;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: #4b5563;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-ip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  background: rgba(229, 62, 62, 0.03);
+  padding: 30px;
+  border-radius: 40px;
+  border: 1px dashed rgba(229, 62, 62, 0.3);
+}
+
+.ip-icon {
+  aspect-ratio: 1/1;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(229, 62, 62, 0.2);
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.ip-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ip-icon:hover {
+  transform: scale(1.05) rotate(2deg);
+  border-color: #e53e3e;
+  box-shadow: 0 20px 30px -8px rgba(229, 62, 62, 0.3);
+}
+
+/* 品牌理念区 */
+.brand {
+  padding: 80px 0;
+  background: white;
+}
+
+.brand-philosophy {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+  background: #fef2f2;
+  border-radius: 40px;
+  padding: 3rem;
+}
+
+.philosophy-card {
+  padding: 2rem;
+}
+
+.philosophy-card i {
+  font-size: 3rem;
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.philosophy-card p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.philosophy-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #e53e3e;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 十二生肖网格 */
+.zodiacs-list {
+  padding: 80px 0;
+  background: #f9fafb;
+}
+
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+.zodiac-card {
+  background: white;
+  border-radius: 28px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  border: 1px solid #f0f2f5;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.zodiac-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #e53e3e;
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+}
+
+.zodiac-card:hover::before {
+  transform: translateX(0);
+}
+
+.zodiac-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 40px -15px rgba(229, 62, 62, 0.25);
+  border-color: #fee2e2;
+}
+
+.card-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+}
+
+.card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zodiac-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.zodiac-card h3 span {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 400;
+  display: block;
+  margin-top: 4px;
+}
+
+.zodiac-card p {
+  color: #6b7280;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #fee2e2;
+  color: #e53e3e;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* 周边产品网格 */
+.merch-list {
+  padding: 80px 0;
+  background: white;
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+.merch-card {
+  background: #fef2f2;
+  border-radius: 28px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  border: 1px solid #fee2e2;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.merch-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px -10px rgba(229, 62, 62, 0.2);
+  border-color: #e53e3e;
+}
+
+.merch-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(229, 62, 62, 0.2);
+  transition: all 0.3s;
+}
+
+.merch-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.merch-card:hover .merch-icon {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.merch-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.merch-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e53e3e;
+  margin-bottom: 0.8rem;
+}
+
+.merch-desc {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 联系区 */
+.contact-cta {
+  padding: 60px 0;
+  background: #e53e3e;
+  color: white;
+  text-align: center;
+}
+
+.contact-cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.contact-cta .social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-cta .social-links a {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 25px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: white;
+  transition: all 0.3s;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-cta .social-links a:hover {
+  background: white;
+  color: #e53e3e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta .social-links a i {
+  font-size: 1.3rem;
+}
+
+/* 页脚 */
+.footer {
+  background: #111827;
+  color: #d1d5db;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin-bottom: 0.8rem;
+}
+
+.footer-credit {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  letter-spacing: 1px;
+}
+
+/* 页头（用于其他页面，如 about/contact，但首页不使用，保留以备将来） */
+.page-header {
+  padding: 60px 0 30px;
+  text-align: center;
+  background: #f9fafb;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* 详情页样式（如需） */
+.detail-page {
+  padding: 60px 0;
+}
+
+.detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fef2f2;
+  border-radius: 40px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.big-icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 2rem;
+  background: #fef2f2;
+}
+
+.big-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* 联系页信息 */
+.contact-info {
+  padding: 60px 0;
+  background: white;
+}
+
+.contact-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fef2f2;
+  border-radius: 40px;
+  padding: 3rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: #e53e3e;
+  width: 2rem;
+  text-align: center;
+}
+
+.contact-item span {
+  font-size: 1.1rem;
+  color: #374151;
+}
+
+.contact-info .social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .zodiac-grid,
+  .merch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-philosophy {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+  .philosophy-stats {
+    margin-top: 2rem;
+  }
+  .zodiac-grid,
+  .merch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-ip-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-ip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .zodiac-grid,
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+  .btn-outline {
+    margin-left: 0;
+  }
+  .philosophy-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-cta .social-links a {
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+}

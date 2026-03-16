@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyXiao · Product Detail</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+    .logo-img { height: 40px; width: auto; }
+    .logo-highlight { color: #e53e3e; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2.5rem; font-weight: 500; }
+    .nav-links a:hover { color: #e53e3e; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 5px 12px; border-radius: 30px; }
+    .lang-btn { background: none; border: none; font-size: 1rem; font-weight: 600; color: #9ca3af; cursor: pointer; padding: 4px 8px; border-radius: 20px; text-decoration: none; }
+    .lang-btn.active { color: #e53e3e; background: white; box-shadow: 0 2px 8px rgba(229,62,62,0.1); }
+
+    .detail-page { padding: 60px 0; min-height: 60vh; }
+    .detail-content { max-width: 800px; margin: 0 auto; background: #fef2f2; border-radius: 40px; padding: 3rem; text-align: center; }
+    .big-icon { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 2rem; background: white; box-shadow: 0 15px 30px -10px rgba(229,62,62,0.3); }
+    .big-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-content h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #111827; }
+    .merch-price { font-size: 2rem; font-weight: 700; color: #e53e3e; margin-bottom: 1rem; }
+    .merch-desc { font-size: 1.2rem; color: #4b5563; margin: 1.5rem 0; }
+    .merch-details { color: #1f2937; margin-bottom: 2rem; }
+    .btn { display: inline-block; padding: 12px 32px; border-radius: 40px; font-weight: 600; transition: all 0.3s; cursor: pointer; border: none; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .btn-primary { background: #e53e3e; color: white; box-shadow: 0 8px 16px -6px rgba(229,62,62,0.4); margin-top: 2rem; }
+    .btn-primary:hover { background: #c53030; transform: translateY(-3px); }
+    .btn-outline { background: transparent; color: #e53e3e; border: 2px solid #e53e3e; }
+    .btn-outline:hover { background: #e53e3e; color: white; transform: translateY(-3px); }
+    .back-link { text-align: center; margin-top: 2rem; }
+
+    .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
+    .footer-credit { font-size: 0.9rem; color: #9ca3af; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">✦ LuckyXiao</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="zodiacs.html">Zodiacs</a>
+          <a href="merch.html">Merch</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <a href="zh/merch-detail.html" class="lang-btn">中</a>
+          <span class="lang-divider">|</span>
+          <a href="merch-detail.html" class="lang-btn active">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-page">
+      <div class="container">
+        <div class="detail-content" id="merch-detail">
+          <!-- 由JavaScript动态加载 -->
+        </div>
+        <div class="back-link">
+          <a href="merch.html" class="btn btn-outline">← Back to Merch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 LuckyXiao · Original IP. All rights reserved.</p>
+      <p class="footer-credit">"BORN TO BE DIFFERENT" — Rediscover the world and future</p>
+    </div>
+  </footer>
+
+  <script>
+    // 周边产品数据
+    const merchData = {
+      blindbox: {
+        name: 'Zodiac Blind Box',
+        price: '$9',
+        desc: 'Randomly draw your guardian zodiac, includes hidden editions',
+        details: 'Each blind box contains a random zodiac figure, approx. 8cm tall, 12 regular + 2 hidden editions.',
+        img: 'images/merch/merch-blindbox.jpg'
+      },
+      tshirt: {
+        name: 'Zodiac T-shirt',
+        price: '$19',
+        desc: 'Cotton, 12 zodiac personality prints',
+        details: '100% cotton, relaxed fit, 12 zodiac prints, multiple colors.',
+        img: 'images/merch/merch-tshirt.jpg'
+      },
+      plush: {
+        name: 'Plush Doll',
+        price: '$24',
+        desc: '25cm soft doll, 12 styles available',
+        details: 'High-quality short plush, PP cotton filling, soft touch, approx. 25cm.',
+        img: 'images/merch/merch-plush.jpg'
+      },
+      bag: {
+        name: 'Canvas Bag',
+        price: '$12',
+        desc: 'Eco-friendly canvas, zodiac illustration pattern',
+        details: '12oz canvas, shoulder/hand carry, beautifully printed zodiac patterns, large capacity.',
+        img: 'images/merch/merch-bag.jpg'
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    function renderDetail() {
+      const container = document.getElementById('merch-detail');
+      if (!container) return;
+
+      if (!id || !merchData[id]) {
+        container.innerHTML = '<p>Product not found</p>';
+        return;
+      }
+
+      const item = merchData[id];
+      container.innerHTML = `
+        <div class="big-icon">
+          <img src="${item.img}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML='<i class=\'fas fa-gift\' style=\'font-size:5rem; color:#e53e3e;\'></i>';">
+        </div>
+        <h2>${item.name}</h2>
+        <div class="merch-price">${item.price}</div>
+        <p class="merch-desc">${item.desc}</p>
+        <p class="merch-details">${item.details}</p>
+        <button class="btn btn-primary">Buy Now</button>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderDetail);
+  </script>
+</body>
+</html>

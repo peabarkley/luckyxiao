@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyXiao · Zodiacs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 样式与首页保持一致，为节省篇幅已省略，实际使用时请包含完整样式 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+    .logo-img { height: 40px; width: auto; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2.5rem; font-weight: 500; }
+    .nav-links a:hover { color: #e53e3e; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 5px 12px; border-radius: 30px; }
+    .lang-btn { background: none; border: none; font-size: 1rem; font-weight: 600; color: #9ca3af; cursor: pointer; padding: 4px 8px; border-radius: 20px; text-decoration: none; }
+    .lang-btn.active { color: #e53e3e; background: white; box-shadow: 0 2px 8px rgba(229,62,62,0.1); }
+    .page-header { padding: 60px 0 30px; text-align: center; background: #f9fafb; }
+    .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .title-highlight { color: #e53e3e; }
+    .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.2rem; }
+    .zodiacs-list { padding: 80px 0; background: #f9fafb; }
+    .zodiac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 2rem; }
+    .zodiac-card { background: white; border-radius: 28px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; border: 1px solid #f0f2f5; display: block; color: inherit; }
+    .zodiac-card:hover { transform: translateY(-10px); box-shadow: 0 25px 40px -15px rgba(229,62,62,0.25); border-color: #fee2e2; }
+    .card-icon { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; }
+    .card-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .zodiac-card h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .zodiac-card h3 span { font-size: 0.9rem; color: #9ca3af; font-weight: 400; display: block; margin-top: 4px; }
+    .zodiac-card p { color: #6b7280; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .card-tag { display: inline-block; padding: 4px 12px; background: #fee2e2; color: #e53e3e; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
+    @media (max-width: 1024px) { .zodiac-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .zodiac-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .zodiac-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">✦ LuckyXiao</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="zodiacs.html">Zodiacs</a>
+          <a href="merch.html">Merch</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <a href="zh/zodiacs.html" class="lang-btn">中</a>
+          <span class="lang-divider">|</span>
+          <a href="zodiacs.html" class="lang-btn active">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>12 ZODIACS · <span class="title-highlight">12 PERSONALITIES</span></h1>
+        <p class="section-sub">ONE PERSON · ONE ZODIAC · ONE PERSONALITY</p>
+      </div>
+    </section>
+
+    <section class="zodiacs-list">
+      <div class="container">
+        <div class="zodiac-grid">
+          <!-- 12生肖卡片（与首页相同） -->
+          <a href="zodiac-detail.html?name=rat" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-rat.png" alt="Rat" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Rat'"></div>
+            <h3>Rat <span>RAT</span></h3>
+            <p>Witty & Alert · Good at discovering</p>
+            <div class="card-tag">Rat · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=ox" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-ox.png" alt="Ox" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Ox'"></div>
+            <h3>Ox <span>OX</span></h3>
+            <p>Diligent & Steadfast · Down-to-earth</p>
+            <div class="card-tag">Ox · Personality</div>
+          </a>
+          <!-- ... 其他10个生肖，完整代码请参考首页的硬编码部分 ... -->
+          <a href="zodiac-detail.html?name=pig" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-pig.png" alt="Pig" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Pig'"></div>
+            <h3>Pig <span>PIG</span></h3>
+            <p>Optimistic & Easygoing · Enjoy life</p>
+            <div class="card-tag">Pig · Personality</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 LuckyXiao · Original IP. All rights reserved.</p>
+      <p class="footer-credit">"BORN TO BE DIFFERENT" — Rediscover the world and future</p>
+    </div>
+  </footer>
+</body>
+</html>

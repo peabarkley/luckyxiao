@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyXiao · Official Site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 完整样式，与之前保持一致 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* 导航栏 */
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1); padding: 16px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); background: rgba(255,255,255,0.95); }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+    .logo-img { height: 40px; width: auto; }
+    .logo-highlight { color: #e53e3e; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2.5rem; font-weight: 500; }
+    .nav-links a { transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: #e53e3e; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 5px 12px; border-radius: 30px; }
+    .lang-btn { background: none; border: none; font-size: 1rem; font-weight: 600; color: #9ca3af; cursor: pointer; padding: 4px 8px; border-radius: 20px; text-decoration: none; }
+    .lang-btn.active { color: #e53e3e; background: white; box-shadow: 0 2px 8px rgba(229,62,62,0.1); }
+    .lang-divider { color: #d1d5db; }
+
+    /* 英雄区 */
+    .hero { padding: 60px 0 80px; background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+    .gradient-text { background: linear-gradient(135deg, #e53e3e, #b91c1c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.5rem; display: block; }
+    .hero-cn { font-size: 4rem; color: #111827; display: block; margin-top: 0.2rem; }
+    .hero-tagline { font-size: 1.2rem; color: #4b5563; margin-bottom: 2.5rem; line-height: 1.8; }
+    .btn { display: inline-block; padding: 12px 32px; border-radius: 40px; font-weight: 600; transition: all 0.3s; cursor: pointer; border: none; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .btn-primary { background: #e53e3e; color: white; box-shadow: 0 8px 16px -6px rgba(229,62,62,0.4); }
+    .btn-primary:hover { background: #c53030; transform: translateY(-3px); }
+    .btn-outline { background: transparent; color: #e53e3e; border: 2px solid #e53e3e; margin-left: 16px; }
+    .btn-outline:hover { background: #e53e3e; color: white; transform: translateY(-3px); }
+    .btn i { margin-left: 8px; }
+    
+    .hero-ip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; background: rgba(229,62,62,0.03); padding: 30px; border-radius: 40px; border: 1px dashed rgba(229,62,62,0.3); }
+    .ip-icon { aspect-ratio: 1/1; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(229,62,62,0.2); transition: all 0.3s; border: 2px solid transparent; }
+    .ip-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .ip-icon:hover { transform: scale(1.05) rotate(2deg); border-color: #e53e3e; }
+
+    /* 品牌理念区 */
+    .brand { padding: 80px 0; background: white; }
+    .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; text-align: center; line-height: 1.3; }
+    .title-highlight { color: #e53e3e; position: relative; display: inline-block; }
+    .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.2rem; }
+    .brand-philosophy { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center; margin-top: 2rem; background: #fef2f2; border-radius: 40px; padding: 3rem; }
+    .philosophy-card { padding: 2rem; }
+    .philosophy-card i { font-size: 3rem; color: #e53e3e; margin-bottom: 1.5rem; }
+    .philosophy-card h3 { font-size: 2rem; margin-bottom: 1rem; color: #111827; }
+    .philosophy-stats { display: flex; justify-content: space-around; text-align: center; }
+    .stat-number { display: block; font-size: 3.5rem; font-weight: 800; color: #e53e3e; line-height: 1; }
+    .stat-label { font-size: 1rem; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* 网格 */
+    .zodiacs-list, .merch-list { padding: 80px 0; }
+    .zodiacs-list { background: #f9fafb; }
+    .zodiac-grid, .merch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 2rem; }
+    .zodiac-card, .merch-card { background: white; border-radius: 28px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; border: 1px solid #f0f2f5; position: relative; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.02); display: block; color: inherit; }
+    .zodiac-card:hover, .merch-card:hover { transform: translateY(-10px); box-shadow: 0 25px 40px -15px rgba(229,62,62,0.25); border-color: #fee2e2; }
+    .card-icon, .merch-icon { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; background: #fef2f2; }
+    .card-icon img, .merch-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .zodiac-card h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .zodiac-card h3 span { font-size: 0.9rem; color: #9ca3af; font-weight: 400; display: block; margin-top: 4px; }
+    .zodiac-card p, .merch-desc { color: #6b7280; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .card-tag { display: inline-block; padding: 4px 12px; background: #fee2e2; color: #e53e3e; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .merch-price { font-size: 1.2rem; font-weight: 700; color: #e53e3e; margin-bottom: 0.8rem; }
+
+    /* 联系区 */
+    .contact-cta { padding: 60px 0; background: #e53e3e; color: white; text-align: center; }
+    .contact-cta h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .contact-cta p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+    .social-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    .social-links a { background: rgba(255,255,255,0.15); padding: 12px 25px; border-radius: 40px; display: inline-flex; align-items: center; gap: 8px; color: white; transition: all 0.3s; }
+    .social-links a:hover { background: white; color: #e53e3e; transform: translateY(-3px); }
+
+    /* 页脚 */
+    .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .zodiac-grid, .merch-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .brand-philosophy { grid-template-columns: 1fr; } .zodiac-grid, .merch-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .zodiac-grid, .merch-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">✦ LuckyXiao</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#zodiacs">Zodiacs</a>
+          <a href="#merch">Merch</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <a href="zh/index.html" class="lang-btn">中</a>
+          <span class="lang-divider">|</span>
+          <a href="index.html" class="lang-btn active">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>
+            <span class="gradient-text">BORN TO BE DIFFERENT</span><br>
+            <span class="hero-cn">Born to be Different</span>
+          </h1>
+          <p class="hero-tagline">Every Chinese has their own zodiac sign, twelve animals, twelve distinct personalities.<br>It's engraved in our genes from birth — the inherent "born to be different".</p>
+          <div class="hero-btns">
+            <a href="#zodiacs" class="btn btn-primary">Explore Zodiacs <i class="fas fa-arrow-right"></i></a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-ip-grid">
+            <a href="zodiac-detail.html?name=rat" class="ip-icon"><img src="images/zodiacs/zodiac-rat.png" alt="Rat" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Rat'"></a>
+            <a href="zodiac-detail.html?name=ox" class="ip-icon"><img src="images/zodiacs/zodiac-ox.png" alt="Ox" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Ox'"></a>
+            <a href="zodiac-detail.html?name=tiger" class="ip-icon"><img src="images/zodiacs/zodiac-tiger.png" alt="Tiger" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Tiger'"></a>
+            <a href="zodiac-detail.html?name=rabbit" class="ip-icon"><img src="images/zodiacs/zodiac-rabbit.png" alt="Rabbit" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Rabbit'"></a>
+            <a href="zodiac-detail.html?name=dragon" class="ip-icon"><img src="images/zodiacs/zodiac-dragon.png" alt="Dragon" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Dragon'"></a>
+            <a href="zodiac-detail.html?name=snake" class="ip-icon"><img src="images/zodiacs/zodiac-snake.png" alt="Snake" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Snake'"></a>
+            <a href="zodiac-detail.html?name=horse" class="ip-icon"><img src="images/zodiacs/zodiac-horse.png" alt="Horse" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Horse'"></a>
+            <a href="zodiac-detail.html?name=goat" class="ip-icon"><img src="images/zodiacs/zodiac-goat.png" alt="Goat" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Goat'"></a>
+            <a href="zodiac-detail.html?name=monkey" class="ip-icon"><img src="images/zodiacs/zodiac-monkey.png" alt="Monkey" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Monkey'"></a>
+            <a href="zodiac-detail.html?name=rooster" class="ip-icon"><img src="images/zodiacs/zodiac-rooster.png" alt="Rooster" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Rooster'"></a>
+            <a href="zodiac-detail.html?name=dog" class="ip-icon"><img src="images/zodiacs/zodiac-dog.png" alt="Dog" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Dog'"></a>
+            <a href="zodiac-detail.html?name=pig" class="ip-icon"><img src="images/zodiacs/zodiac-pig.png" alt="Pig" onerror="this.src='https://via.placeholder.com/100/e53e3e/ffffff?text=Pig'"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Concept -->
+    <section class="brand" id="about">
+      <div class="container">
+        <h2 class="section-title">Unique Chinese<span class="title-highlight">“Zodiac Crew”</span></h2>
+        <p class="section-sub">In the multiverse, each of us is a unique existence. Find your hidden true self and unleash your personality.</p>
+        <div class="brand-philosophy">
+          <div class="philosophy-card">
+            <i class="fas fa-feather"></i>
+            <h3>Personality · Inclusion · Passion</h3>
+            <p>Exploring the youthful attitude and visual interpretation of zodiac signs in contemporary life, rediscovering the world and future with the concept of "BORN TO BE DIFFERENT".</p>
+          </div>
+          <div class="philosophy-stats">
+            <div class="stat-item"><span class="stat-number">12</span><span class="stat-label">ZODIACS</span></div>
+            <div class="stat-item"><span class="stat-number">12</span><span class="stat-label">PERSONALITIES</span></div>
+            <div class="stat-item"><span class="stat-number">1</span><span class="stat-label">YOU</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Zodiacs Grid -->
+    <section class="zodiacs-list" id="zodiacs">
+      <div class="container">
+        <h2 class="section-title">12 ZODIACS · <span class="title-highlight">12 PERSONALITIES</span></h2>
+        <p class="section-sub">ONE PERSON · ONE ZODIAC · ONE PERSONALITY</p>
+        <div class="zodiac-grid">
+          <!-- 12生肖卡片硬编码 -->
+          <a href="zodiac-detail.html?name=rat" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-rat.png" alt="Rat" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Rat'"></div>
+            <h3>Rat <span>RAT</span></h3>
+            <p>Witty & Alert · Good at discovering</p>
+            <div class="card-tag">Rat · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=ox" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-ox.png" alt="Ox" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Ox'"></div>
+            <h3>Ox <span>OX</span></h3>
+            <p>Diligent & Steadfast · Down-to-earth</p>
+            <div class="card-tag">Ox · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=tiger" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-tiger.png" alt="Tiger" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Tiger'"></div>
+            <h3>Tiger <span>TIGER</span></h3>
+            <p>Brave & Fearless · Kingly</p>
+            <div class="card-tag">Tiger · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=rabbit" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-rabbit.png" alt="Rabbit" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Rabbit'"></div>
+            <h3>Rabbit <span>RABBIT</span></h3>
+            <p>Gentle & Agile · Empathetic</p>
+            <div class="card-tag">Rabbit · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=dragon" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-dragon.png" alt="Dragon" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Dragon'"></div>
+            <h3>Dragon <span>DRAGON</span></h3>
+            <p>Majestic & Innovative · Pioneering</p>
+            <div class="card-tag">Dragon · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=snake" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-snake.png" alt="Snake" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Snake'"></div>
+            <h3>Snake <span>SNAKE</span></h3>
+            <p>Wise & Mysterious · Thoughtful</p>
+            <div class="card-tag">Snake · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=horse" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-horse.png" alt="Horse" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Horse'"></div>
+            <h3>Horse <span>HORSE</span></h3>
+            <p>Free & Spirited · Forward</p>
+            <div class="card-tag">Horse · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=goat" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-goat.png" alt="Goat" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Goat'"></div>
+            <h3>Goat <span>GOAT</span></h3>
+            <p>Mild & Kind · Artistic</p>
+            <div class="card-tag">Goat · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=monkey" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-monkey.png" alt="Monkey" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Monkey'"></div>
+            <h3>Monkey <span>MONKEY</span></h3>
+            <p>Clever & Lively · Creative</p>
+            <div class="card-tag">Monkey · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=rooster" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-rooster.png" alt="Rooster" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Rooster'"></div>
+            <h3>Rooster <span>ROOSTER</span></h3>
+            <p>Confident & Punctual · Perfectionist</p>
+            <div class="card-tag">Rooster · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=dog" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-dog.png" alt="Dog" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Dog'"></div>
+            <h3>Dog <span>DOG</span></h3>
+            <p>Loyal & Upright · Protective</p>
+            <div class="card-tag">Dog · Personality</div>
+          </a>
+          <a href="zodiac-detail.html?name=pig" class="zodiac-card">
+            <div class="card-icon"><img src="images/zodiacs/zodiac-pig.png" alt="Pig" onerror="this.src='https://via.placeholder.com/90/e53e3e/ffffff?text=Pig'"></div>
+            <h3>Pig <span>PIG</span></h3>
+            <p>Optimistic & Easygoing · Enjoy life</p>
+            <div class="card-tag">Pig · Personality</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Merch Grid -->
+    <section class="merch-list" id="merch">
+      <div class="container">
+        <h2 class="section-title">Official<span class="title-highlight">Merch</span></h2>
+        <p class="section-sub">Bring the Zodiac personality home · Official Merchandise</p>
+        <div class="merch-grid">
+          <a href="merch-detail.html?id=blindbox" class="merch-card">
+            <div class="merch-icon"><img src="images/merch/merch-blindbox.jpg" alt="Zodiac Blind Box" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-gift\' style=\'font-size:3rem; color:#e53e3e; line-height:90px;\'></i>';"></div>
+            <h3>Zodiac Blind Box</h3>
+            <div class="merch-price">$9</div>
+            <p class="merch-desc">Randomly draw your guardian zodiac, includes hidden editions</p>
+          </a>
+          <a href="merch-detail.html?id=tshirt" class="merch-card">
+            <div class="merch-icon"><img src="images/merch/merch-tshirt.jpg" alt="Zodiac T-shirt" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-shirt\' style=\'font-size:3rem; color:#e53e3e; line-height:90px;\'></i>';"></div>
+            <h3>Zodiac T-shirt</h3>
+            <div class="merch-price">$19</div>
+            <p class="merch-desc">Cotton, 12 zodiac personality prints</p>
+          </a>
+          <a href="merch-detail.html?id=plush" class="merch-card">
+            <div class="merch-icon"><img src="images/merch/merch-plush.jpg" alt="Plush Doll" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-cube\' style=\'font-size:3rem; color:#e53e3e; line-height:90px;\'></i>';"></div>
+            <h3>Plush Doll</h3>
+            <div class="merch-price">$24</div>
+            <p class="merch-desc">25cm soft doll, 12 styles available</p>
+          </a>
+          <a href="merch-detail.html?id=bag" class="merch-card">
+            <div class="merch-icon"><img src="images/merch/merch-bag.jpg" alt="Canvas Bag" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-bag-shopping\' style=\'font-size:3rem; color:#e53e3e; line-height:90px;\'></i>';"></div>
+            <h3>Canvas Bag</h3>
+            <div class="merch-price">$12</div>
+            <p class="merch-desc">Eco-friendly canvas, zodiac illustration pattern</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta" id="contact">
+      <div class="container">
+        <h2>Find Your Zodiac · Embrace Your Personality</h2>
+        <p>Follow LuckyXiao for the latest IP updates and merch</p>
+        <div class="social-links">
+          <a href="#"><i class="fas fa-music"></i><span>Douyin</span></a>
+          <a href="#"><i class="fas fa-book-open"></i><span>Xiaohongshu</span></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 LuckyXiao · Original IP. All rights reserved.</p>
+      <p class="footer-credit">"BORN TO BE DIFFERENT" — Rediscover the world and future</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyXiao · Zodiac Detail</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(229, 62, 62, 0.1); padding: 16px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); background: rgba(255,255,255,0.95); }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+    .logo-img { height: 40px; width: auto; }
+    .logo-highlight { color: #e53e3e; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2.5rem; font-weight: 500; }
+    .nav-links a:hover { color: #e53e3e; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 5px 12px; border-radius: 30px; }
+    .lang-btn { background: none; border: none; font-size: 1rem; font-weight: 600; color: #9ca3af; cursor: pointer; padding: 4px 8px; border-radius: 20px; text-decoration: none; }
+    .lang-btn.active { color: #e53e3e; background: white; box-shadow: 0 2px 8px rgba(229,62,62,0.1); }
+    .lang-divider { color: #d1d5db; }
+
+    .detail-page { padding: 60px 0; min-height: 60vh; }
+    .detail-content { max-width: 800px; margin: 0 auto; background: #fef2f2; border-radius: 40px; padding: 3rem; text-align: center; }
+    .big-icon { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 2rem; background: white; box-shadow: 0 15px 30px -10px rgba(229,62,62,0.3); }
+    .big-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-content h2 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #111827; }
+    .detail-content h2 span { font-size: 1rem; color: #9ca3af; font-weight: 400; }
+    .detail-desc { font-size: 1.2rem; color: #4b5563; margin: 1.5rem 0; }
+    .detail-personality { color: #1f2937; margin-bottom: 2rem; }
+    .detail-section { margin-top: 2rem; text-align: left; background: white; padding: 1.5rem; border-radius: 20px; }
+    .detail-section h3 { color: #e53e3e; margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .back-link { text-align: center; margin-top: 2rem; }
+    .btn { display: inline-block; padding: 12px 32px; border-radius: 40px; font-weight: 600; transition: all 0.3s; cursor: pointer; border: none; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .btn-outline { background: transparent; color: #e53e3e; border: 2px solid #e53e3e; }
+    .btn-outline:hover { background: #e53e3e; color: white; transform: translateY(-3px); }
+
+    .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
+    .footer-credit { font-size: 0.9rem; color: #9ca3af; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">✦ LuckyXiao</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="zodiacs.html">Zodiacs</a>
+          <a href="merch.html">Merch</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <a href="zh/zodiac-detail.html" class="lang-btn">中</a>
+          <span class="lang-divider">|</span>
+          <a href="zodiac-detail.html" class="lang-btn active">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-page">
+      <div class="container">
+        <div class="detail-content" id="zodiac-detail">
+          <!-- 由JavaScript动态加载 -->
+        </div>
+        <div class="back-link">
+          <a href="zodiacs.html" class="btn btn-outline">← Back to Zodiacs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 LuckyXiao · Original IP. All rights reserved.</p>
+      <p class="footer-credit">"BORN TO BE DIFFERENT" — Rediscover the world and future</p>
+    </div>
+  </footer>
+
+  <script>
+    // 生肖数据（从PDF提取）
+    const zodiacData = {
+      rat: {
+        name: 'Rat',
+        en: 'RAT',
+        desc: 'Witty & Alert · Good at discovering',
+        personality: 'Witty and alert, good at discovering opportunities, social butterfly.',
+        character: 'Show-off · Sharp-tongued · Self-righteous',
+        skill: 'Obsessed with food, nose can scan like radar; when smelling food, nose expands like a balloon.',
+        img: 'images/zodiacs/zodiac-rat.png'
+      },
+      ox: {
+        name: 'Ox',
+        en: 'OX',
+        desc: 'Diligent & Steadfast · Down-to-earth',
+        personality: 'Diligent and steadfast, down-to-earth, reliable partner.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-ox.png'
+      },
+      tiger: {
+        name: 'Tiger',
+        en: 'TIGER',
+        desc: 'Brave & Fearless · Kingly',
+        personality: 'Brave and fearless, strong leadership, loves challenges.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-tiger.png'
+      },
+      rabbit: {
+        name: 'Rabbit',
+        en: 'RABBIT',
+        desc: 'Gentle & Agile · Empathetic',
+        personality: 'Gentle and agile, empathetic, peace-loving.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-rabbit.png'
+      },
+      dragon: {
+        name: 'Dragon',
+        en: 'DRAGON',
+        desc: 'Majestic & Innovative · Pioneering',
+        personality: 'Majestic and innovative, creative, full of energy.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-dragon.png'
+      },
+      snake: {
+        name: 'Snake',
+        en: 'SNAKE',
+        desc: 'Wise & Mysterious · Thoughtful',
+        personality: 'Wise and mysterious, thoughtful, far-sighted.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-snake.png'
+      },
+      horse: {
+        name: 'Horse',
+        en: 'HORSE',
+        desc: 'Free & Spirited · Forward',
+        personality: 'Free and spirited, enthusiastic, pursues freedom.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-horse.png'
+      },
+      goat: {
+        name: 'Goat',
+        en: 'GOAT',
+        desc: 'Mild & Kind · Artistic',
+        personality: 'Mild and kind, artistic, compassionate.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-goat.png'
+      },
+      monkey: {
+        name: 'Monkey',
+        en: 'MONKEY',
+        desc: 'Clever & Lively · Creative',
+        personality: 'Clever and lively, creative, humorous and witty.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-monkey.png'
+      },
+      rooster: {
+        name: 'Rooster',
+        en: 'ROOSTER',
+        desc: 'Confident & Punctual · Perfectionist',
+        personality: 'Confident and punctual, perfectionist, keen observer.',
+        character: 'Sensitive · Neurotic',
+        skill: 'Loves singing, eloquent; when excited, comb shoots up.',
+        img: 'images/zodiacs/zodiac-rooster.png'
+      },
+      dog: {
+        name: 'Dog',
+        en: 'DOG',
+        desc: 'Loyal & Upright · Protective',
+        personality: 'Loyal and upright, protective, strong sense of justice.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-dog.png'
+      },
+      pig: {
+        name: 'Pig',
+        en: 'PIG',
+        desc: 'Optimistic & Easygoing · Enjoy life',
+        personality: 'Optimistic and easygoing, enjoys life, sincere and friendly.',
+        character: '',
+        skill: '',
+        img: 'images/zodiacs/zodiac-pig.png'
+      }
+    };
+
+    // 获取URL参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    
+    // 渲染详情页
+    function renderDetail() {
+      const container = document.getElementById('zodiac-detail');
+      if (!container) return;
+      
+      if (!name || !zodiacData[name]) {
+        container.innerHTML = '<p>Zodiac not found</p>';
+        return;
+      }
+      
+      const zodiac = zodiacData[name];
+      let html = `
+        <div class="big-icon">
+          <img src="${zodiac.img}" alt="${zodiac.name}" onerror="this.src='https://via.placeholder.com/150/e53e3e/ffffff?text=${zodiac.name.charAt(0)}'">
+        </div>
+        <h2>${zodiac.name} <span>${zodiac.en}</span></h2>
+        <p class="detail-desc">${zodiac.desc}</p>
+        <p class="detail-personality">${zodiac.personality}</p>
+      `;
+      
+      if (zodiac.character) {
+        html += `
+          <div class="detail-section">
+            <h3>Character</h3>
+            <p>${zodiac.character}</p>
+          </div>
+        `;
+      }
+      
+      if (zodiac.skill) {
+        html += `
+          <div class="detail-section">
+            <h3>Skill</h3>
+            <p>${zodiac.skill}</p>
+          </div>
+        `;
+      }
+      
+      container.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderDetail);
+  </script>
+</body>
+</html>
