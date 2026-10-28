@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.luckyxiao.com/</loc></url>
+  <url><loc>https://www.luckyxiao.com/zodiacs.html</loc></url>
+  <url><loc>https://www.luckyxiao.com/merch.html</loc></url>
+  <!-- 12个生肖独立页，按新结构添加 -->
+  <url><loc>https://www.luckyxiao.com/zodiacs/rat.html</loc></url>
+  <url><loc>https://www.luckyxiao.com/zodiacs/ox.html</loc></url>
+  <!-- ...其余10个... -->
+  <url><loc>https://www.luckyxiao.com/merch/blindbox.html</loc></url>
+  <!-- 4个商品页... -->
+  <url><loc>https://www.luckyxiao.com/zh/</loc></url>
+  <url><loc>https://www.luckyxiao.com/zh/zodiacs.html</loc></url>
+  <!-- 中文版全部对应页面... -->
+</urlset>
