@@ -1,0 +1,51 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/zh/index.html", "destination": "/zh/", "statusCode": 301 },
+
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rat" } }], "destination": "/zodiacs/rat.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "ox" } }], "destination": "/zodiacs/ox.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "tiger" } }], "destination": "/zodiacs/tiger.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rabbit" } }], "destination": "/zodiacs/rabbit.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "dragon" } }], "destination": "/zodiacs/dragon.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "snake" } }], "destination": "/zodiacs/snake.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "horse" } }], "destination": "/zodiacs/horse.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "goat" } }], "destination": "/zodiacs/goat.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "monkey" } }], "destination": "/zodiacs/monkey.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rooster" } }], "destination": "/zodiacs/rooster.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "dog" } }], "destination": "/zodiacs/dog.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "pig" } }], "destination": "/zodiacs/pig.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "ninc": ["rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat", "monkey", "rooster", "dog", "pig"] } }], "destination": "/zodiacs.html", "statusCode": 301 },
+    { "source": "/zodiac-detail.html", "missing": [{ "type": "query", "key": "name" }], "destination": "/zodiacs.html", "statusCode": 301 },
+
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rat" } }], "destination": "/zh/zodiacs/rat.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "ox" } }], "destination": "/zh/zodiacs/ox.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "tiger" } }], "destination": "/zh/zodiacs/tiger.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rabbit" } }], "destination": "/zh/zodiacs/rabbit.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "dragon" } }], "destination": "/zh/zodiacs/dragon.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "snake" } }], "destination": "/zh/zodiacs/snake.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "horse" } }], "destination": "/zh/zodiacs/horse.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "goat" } }], "destination": "/zh/zodiacs/goat.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "monkey" } }], "destination": "/zh/zodiacs/monkey.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "rooster" } }], "destination": "/zh/zodiacs/rooster.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "dog" } }], "destination": "/zh/zodiacs/dog.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "eq": "pig" } }], "destination": "/zh/zodiacs/pig.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "has": [{ "type": "query", "key": "name", "value": { "ninc": ["rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat", "monkey", "rooster", "dog", "pig"] } }], "destination": "/zh/zodiacs.html", "statusCode": 301 },
+    { "source": "/zh/zodiac-detail.html", "missing": [{ "type": "query", "key": "name" }], "destination": "/zh/zodiacs.html", "statusCode": 301 },
+
+    { "source": "/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "blindbox" } }], "destination": "/merch/blindbox.html", "statusCode": 301 },
+    { "source": "/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "tshirt" } }], "destination": "/merch/tshirt.html", "statusCode": 301 },
+    { "source": "/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "plush" } }], "destination": "/merch/plush.html", "statusCode": 301 },
+    { "source": "/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "bag" } }], "destination": "/merch/bag.html", "statusCode": 301 },
+    { "source": "/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "ninc": ["blindbox", "tshirt", "plush", "bag"] } }], "destination": "/merch.html", "statusCode": 301 },
+    { "source": "/merch-detail.html", "missing": [{ "type": "query", "key": "id" }], "destination": "/merch.html", "statusCode": 301 },
+
+    { "source": "/zh/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "blindbox" } }], "destination": "/zh/merch/blindbox.html", "statusCode": 301 },
+    { "source": "/zh/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "tshirt" } }], "destination": "/zh/merch/tshirt.html", "statusCode": 301 },
+    { "source": "/zh/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "plush" } }], "destination": "/zh/merch/plush.html", "statusCode": 301 },
+    { "source": "/zh/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "eq": "bag" } }], "destination": "/zh/merch/bag.html", "statusCode": 301 },
+    { "source": "/zh/merch-detail.html", "has": [{ "type": "query", "key": "id", "value": { "ninc": ["blindbox", "tshirt", "plush", "bag"] } }], "destination": "/zh/merch.html", "statusCode": 301 },
+    { "source": "/zh/merch-detail.html", "missing": [{ "type": "query", "key": "id" }], "destination": "/zh/merch.html", "statusCode": 301 }
+  ]
+}
