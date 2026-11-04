@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>跳转中... | LuckyXiao肖确幸</title>
-  
-  <!-- 关键：告诉搜索引擎不要收录这个动态壳子页 -->
-  <meta name="robots" content="noindex, follow">
+  <title>周边产品 | LuckyXiao肖确幸</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -40,13 +37,13 @@
 <body>
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">
+      <a href="/zh/" class="logo">
         <img src="../images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
         <span class="logo-text">✦ LuckyXiao<span class="logo-highlight">肖确幸</span></span>
       </a>
       <div class="nav-right">
         <nav class="nav-links">
-          <a href="index.html">首页</a>
+          <a href="/zh/">首页</a>
           <a href="zodiacs.html">十二天团</a>
           <a href="merch.html">周边产品</a>
           <a href="about.html">理念</a>
@@ -58,11 +55,9 @@
 
   <main class="detail-page">
     <div class="container">
-      <div class="detail-content" id="jump-container">
-        <div class="spinner"><i class="fas fa-spinner"></i></div>
-        <p>正在为您跳转到对应的产品页面...</p>
-        <p style="font-size: 0.9rem; color: #9ca3af;">如果没有自动跳转，请点击下方按钮。</p>
-        <a href="merch.html" class="btn" id="fallback-btn">返回周边列表</a>
+      <div class="detail-content">
+        <p>商品详情已改为独立页面。</p>
+        <a href="/zh/merch.html" class="btn">查看周边产品</a>
       </div>
     </div>
   </main>
@@ -74,25 +69,5 @@
     </div>
   </footer>
 
-  <script>
-    // 页面加载后立即执行跳转逻辑
-    (function redirectToStaticPage() {
-      // 1. 获取 URL 中的 id 参数
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('id');
-      
-      // 2. 如果存在有效的 id 参数，则重定向到对应的静态页
-      if (productId && /^[a-z]+$/.test(productId)) { // 简单正则防注入
-        // 例如: zh/merch/blindbox.html
-        window.location.replace('merch/' + productId + '.html');
-      } else {
-        // 如果没有参数或参数格式不对，3秒后自动退回到周边列表页
-        const fallbackBtn = document.getElementById('fallback-btn');
-        setTimeout(function() {
-          window.location.replace('merch.html');
-        }, 3000);
-      }
-    })();
-  </script>
 </body>
 </html>

@@ -44,8 +44,9 @@ function renderZodiacs(selector = '.zodiac-grid') {
     return;
   }
   const zodiacs = languages[currentLang].zodiacs;
+  const zodiacBase = currentLang === 'zh' ? 'zh/zodiacs/' : 'zodiacs/';
   container.innerHTML = zodiacs.map(animal => `
-    <a href="zodiac-detail.html?name=${animal.id}" class="zodiac-card">
+    <a href="${zodiacBase}${animal.id}.html" class="zodiac-card">
       <div class="card-icon"><img src="${animal.img}" alt="${animal.name}"></div>
       <h3>${animal.name} <span>${animal.en}</span></h3>
       <p>${animal.desc}</p>

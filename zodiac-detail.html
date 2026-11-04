@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting... | LuckyXiao</title>
-  
-  <!-- 关键：告诉搜索引擎不要收录这个动态壳子页 -->
-  <meta name="robots" content="noindex, follow">
+  <title>Zodiacs | LuckyXiao</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -40,13 +37,13 @@
 <body>
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">
+      <a href="/" class="logo">
         <img src="images/logo.png" alt="LuckyXiao" class="logo-img" onerror="this.style.display='none'">
         <span class="logo-text">✦ LuckyXiao</span>
       </a>
       <div class="nav-right">
         <nav class="nav-links">
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
           <a href="zodiacs.html">Zodiacs</a>
           <a href="merch.html">Merch</a>
           <a href="about.html">About</a>
@@ -58,11 +55,9 @@
 
   <main class="detail-page">
     <div class="container">
-      <div class="detail-content" id="jump-container">
-        <div class="spinner"><i class="fas fa-spinner"></i></div>
-        <p>Redirecting you to the zodiac page...</p>
-        <p style="font-size: 0.9rem; color: #9ca3af;">If you are not redirected automatically, please click the button below.</p>
-        <a href="zodiacs.html" class="btn" id="fallback-btn">Back to Zodiacs</a>
+      <div class="detail-content">
+        <p>Zodiac profiles now live on their own pages.</p>
+        <a href="/zodiacs.html" class="btn">View Zodiacs</a>
       </div>
     </div>
   </main>
@@ -74,25 +69,5 @@
     </div>
   </footer>
 
-  <script>
-    // 页面加载后立即执行跳转逻辑
-    (function redirectToStaticPage() {
-      // 1. 获取 URL 中的 name 参数
-      const urlParams = new URLSearchParams(window.location.search);
-      const zodiacName = urlParams.get('name');
-      
-      // 2. 如果存在有效的 name 参数，则重定向到对应的静态页
-      if (zodiacName && /^[a-z]+$/.test(zodiacName)) { // 简单正则防注入
-        // 例如: zodiacs/rat.html
-        window.location.replace('zodiacs/' + zodiacName + '.html');
-      } else {
-        // 如果没有参数或参数格式不对，3秒后自动退回到生肖列表页
-        const fallbackBtn = document.getElementById('fallback-btn');
-        setTimeout(function() {
-          window.location.replace('zodiacs.html');
-        }, 3000);
-      }
-    })();
-  </script>
 </body>
 </html>
