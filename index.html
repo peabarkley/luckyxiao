@@ -75,10 +75,8 @@
     .merch-price { font-size: 1.2rem; font-weight: 700; color: #e53e3e; margin-bottom: 0.8rem; }
     .contact-cta { padding: 60px 0; background: #e53e3e; color: white; text-align: center; }
     .contact-cta h2 { font-size: 2.2rem; margin-bottom: 1rem; }
-    .contact-cta p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
-    .social-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-    .social-links a { background: rgba(255,255,255,0.15); padding: 12px 25px; border-radius: 40px; display: inline-flex; align-items: center; gap: 8px; color: white; transition: all 0.3s; }
-    .social-links a:hover { background: white; color: #e53e3e; transform: translateY(-3px); }
+    .contact-cta p { font-size: 1.2rem; margin-bottom: 0; opacity: 0.9; }
+    .contact-cta a { text-decoration: underline; }
     .footer { background: #111827; color: #d1d5db; padding: 40px 0; text-align: center; }
     @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .zodiac-grid, .merch-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 768px) { .brand-philosophy { grid-template-columns: 1fr; } .zodiac-grid, .merch-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -278,13 +276,7 @@
     <section class="contact-cta" id="contact">
       <div class="container">
         <h2>Find Your Zodiac · Embrace Your Personality</h2>
-        <p>Follow LuckyXiao for the latest IP updates and merch</p>
-        <div class="social-links">
-          <a href="#"><i class="fas fa-music"></i><span>Douyin</span></a>
-          <a href="#"><i class="fas fa-book-open"></i><span>Xiaohongshu</span></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
+        <p class="social-note">Social profiles are not listed on this site. <a href="contact.html">Contact</a></p>
       </div>
     </section>
   </main>
